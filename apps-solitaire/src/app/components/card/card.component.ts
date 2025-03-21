@@ -1,7 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, Injectable, Input } from "@angular/core";
 import { Suit } from "../../enums/suit";
 import { Value } from "../../enums/value";
-
 @Component({
     selector: 'as-card',
     templateUrl: './card.component.html',
@@ -9,15 +8,20 @@ import { Value } from "../../enums/value";
     standalone: true,
 })
 export class Card {
-    constructor(suit: Suit, value: Value) {
-        this.suit = suit;
-        this.value = value;
-    }
-    suit: Suit ;
-    value: Value;
+    @Input() suit: Suit = 0;
+    @Input() value: Value = 0;
+    hidden: Boolean = false;
 
     public getLabel() : string {
-        return `${this.valueToString()} of ${this.suitToString()}`
+        if (this.hidden){
+            return 'Face Down Card '
+        }else{
+            return `${this.valueToString()} of ${this.suitToString()}`
+        }
+    }
+
+    public flipCard() : void {
+        this.hidden = !this.hidden;
     }
 
     suitToString() : string {

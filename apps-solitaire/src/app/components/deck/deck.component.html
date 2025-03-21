@@ -1,5 +1,4 @@
-<div class="continer">
-    <div *ngFor="let card of deck">
-        {{ card.getLabel() }}
-    </div>
+<div class="container">
+    <as-card *ngFor="let card of deck" [suit]="card.suit" [value]="card.value">
+    </as-card>
 </div>

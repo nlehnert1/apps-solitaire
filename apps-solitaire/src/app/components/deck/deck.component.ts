@@ -9,10 +9,11 @@ import { CommonModule } from "@angular/common";
     templateUrl: './deck.component.html',
     styleUrls: ['./deck.component.scss'],
     standalone: true,
-    imports: [CommonModule]
+    imports: [CommonModule, Card],
+    providers: [{provide: Card}]
 })
 export class DeckComponent {
-    deck: Card[] = [];
+    deck: any = [];
 
     constructor() {
         this.initializeDeck();
@@ -22,7 +23,7 @@ export class DeckComponent {
     public initializeDeck() {
         AllSuits.forEach(suit => {
             AllValues.forEach(value => {
-                this.deck.push(new Card(suit, value))
+                this.deck.push({suit,value})
             });
         });
     }
