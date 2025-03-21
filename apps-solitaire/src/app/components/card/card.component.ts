@@ -16,9 +16,13 @@ export class Card {
     suit: Suit ;
     value: Value;
 
-    suitToString(suit: Suit) : string {
+    public getLabel() : string {
+        return `${this.valueToString()} of ${this.suitToString()}`
+    }
+
+    suitToString() : string {
         var suitLabel = '';
-        switch (suit) {
+        switch (this.suit) {
             case Suit.Clubs:
                 suitLabel = 'Clubs';
             break
@@ -35,9 +39,9 @@ export class Card {
         return suitLabel;
     }
 
-    valueToString(value: Value) : string {
+    valueToString() : string {
         var valueLabel = '';
-        switch (value) {
+        switch (this.value) {
             case Value.Ace:
                 valueLabel = "Ace";
             break
@@ -69,13 +73,13 @@ export class Card {
                 valueLabel = '10';
             break
             case Value.Jack:
-                valueLabel = 'J';
+                valueLabel = 'Jack';
             break
             case Value.Queen:
-                valueLabel = 'Q';
+                valueLabel = 'Queen';
             break
             case Value.King:
-                valueLabel = 'K';
+                valueLabel = 'King';
             break
         }
         return valueLabel;
