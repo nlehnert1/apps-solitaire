@@ -10,11 +10,11 @@ import { Value } from "../../enums/value";
 export class Card {
     @Input() suit: Suit = 0;
     @Input() value: Value = 0;
-    hidden: Boolean = false;
+    hidden: Boolean = true;
 
     public getLabel() : string {
         if (this.hidden){
-            return 'Face Down Card '
+            return ''
         }else{
             return `${this.valueToString()} of ${this.suitToString()}`
         }

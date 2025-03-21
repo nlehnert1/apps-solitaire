@@ -1,0 +1,21 @@
+.cardContainer {
+    height: 150px;
+    width: 100px;
+    outline: black 2px solid;
+}
+
+.textContainer {
+    height: 100%;
+    width: 98px;
+    padding: 2px;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.text {
+    color: white;
+    text-align: center;
+}
